@@ -1,0 +1,7 @@
+{
+  "posts_path": "./posts",
+  "home_path": "./home.md",
+  "author_name": "Yor Name",
+  "author_email": "yoremail@y.z",
+  "header_template": "%{post_title}\n\n<header>\n    <a class=\"name\" href=\"../../index.html\">{author_name}</a>\n    <nav>\n        <a class=\"title\" href=\"\">{blog_title}</a> &nbsp;&nbsp;\n        <a class=\"title\" href=\"mailto:{author_email}\">CONTACT</a> &nbsp;&nbsp;\n    </nav>\n</header>\n\n<hr />\n\n## {post_title}\n\n%DATE%\n\n---"
+}

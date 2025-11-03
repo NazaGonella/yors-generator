@@ -28,12 +28,23 @@
 <h2 id="requirements">Requirements</h2>
 <ul>
 <li>Python</li>
+<li>Git repository with separate ‘working’ branch</li>
 </ul>
 <h2 id="how-to-use">How to use</h2>
 <p>To start writing a new post, execute
 <code>python create-post &lt;file_name&gt; &lt;post_title&gt;</code>.
-This will create a <code>posts</code> directory with the folders of all
-future posts. Each post has its own folder with an <code>.md</code>
-file.</p>
+This will create a <code>posts</code> directory that will contain the
+folders of future posts, each one with its corresponding
+<code>.md</code> template file.</p>
+<p>To generate</p>
+<ol type="1">
+<li>Run
+<code>python create-post &lt;file_name&gt; &lt;post_title&gt;</code> to
+start writing a new post from a template file.</li>
+<li>Run <code>python build.py</code> to generate the website.</li>
+<li>Commit changes to working branch.</li>
+<li>Configure branches in <code>./deploy.sh</code>, then run to merge
+with the master branch.</li>
+</ol>
 </body>
 </html>

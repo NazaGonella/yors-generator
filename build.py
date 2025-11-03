@@ -2,7 +2,7 @@ import os
 import subprocess
 from pathlib import Path
 
-ignored_mds = ["./TODO.md"]
+ignored_mds = ["./README.md"]
 ignored_mds = [Path(md) for md in ignored_mds]
 
 css_path = Path("style.css").resolve()  # absolute path to CSS

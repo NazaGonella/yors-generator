@@ -1,11 +1,12 @@
 #!/bin/bash
 
+main_branch="master"
 working_branch="working"
 
-git checkout master
+git checkout "$main_branch"
 git merge "$working_branch" --no-ff
-git push origin master
+git push origin "$main_branch"
 
-echo "Master branch updated"
+echo "Main branch updated"
 
 git checkout "$working_branch"

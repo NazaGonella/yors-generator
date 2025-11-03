@@ -2,11 +2,13 @@ import os
 import subprocess
 from pathlib import Path
 
-home_path : str = "./home.md"
+ignored_mds = ["./TODO.md"]
+ignored_mds = [Path(md) for md in ignored_mds]
+
 css_path = Path("style.css").resolve()  # absolute path to CSS
 
 markdown_files = list(Path(".").rglob("*.md"))
-paired_files = [(md, md.parent / "index.html") for md in markdown_files]
+paired_files = [(md, md.parent / "index.html") for md in markdown_files if md not in ignored_mds]
 
 print("### BUILD ###")
 for md, html in paired_files:
@@ -16,7 +18,6 @@ for md, html in paired_files:
         if mtime_html >  mtime_md:
             continue
 
-    # compute CSS path relative to html file
     rel_css = os.path.relpath(css_path, start=html.parent)
 
     subprocess.run([
@@ -26,11 +27,5 @@ for md, html in paired_files:
         "--css", rel_css,
         "-V", "title="
     ])
-
-    # Read current content
-    content = html.read_text(encoding="utf-8")
-
-    # Write back
-    html.write_text(content, encoding="utf-8")
 
     print(md, "->", html)

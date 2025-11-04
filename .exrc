@@ -1,19 +1,9 @@
+let s:script_dir = expand('<sfile>:p:h')
 augroup markdown_shortcuts
   autocmd!
-  autocmd FileType markdown call s:markdown_mappings()
+  autocmd FileType markdown inoremap <buffer> <C-b> ****<Left><Left>
+  autocmd FileType markdown inoremap <buffer> <C-i> **<Left>
+  autocmd FileType markdown inoremap <buffer> <C-k> ``<Left>
+  autocmd FileType markdown inoremap <buffer> <C-l> ```<CR><CR>```<Esc>kA
+  autocmd FileType markdown autocmd BufWritePost <buffer> execute '!python3 ' . shellescape(s:script_dir . '/build.py')
 augroup END
-
-function! s:markdown_mappings()
-		" Bold: **text**
-		inoremap <buffer> <C-b> ****<Left><Left>
-		" Italic: *text*
-		inoremap <buffer> <C-i> **<Left>
-		" Inline code: `code`
-		inoremap <buffer> <C-k> ``<Left>
-		" Code block (triple backticks)
-		inoremap <buffer> <C-l> ```<CR><CR>```<Esc>kA
-
-		" Build on writing file
-		autocmd!
-		autocmd BufWritePost *.md execute '!python3 ' . shellescape(expand('<sfile>:p:h') . '/build.py')
-endfunction

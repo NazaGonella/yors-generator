@@ -3,6 +3,7 @@
 import subprocess
 import sys
 import os
+import json
 from datetime import datetime
 
 
@@ -10,11 +11,15 @@ if len(sys.argv) != 3:
     print("Usage: python create-post.py <file_name> <post_title>")
     sys.exit(1)
 
+with open("metadata.json", "r", encoding="utf-8") as f:
+    metadata = json.load(f)
+
 file_name = sys.argv[1]
 post_title = sys.argv[2]
-author = "Your Name"        # hardcoded
+author = metadata["author"]
 
-posts_path : str = "./posts"
+
+posts_path : str = metadata["posts_path"]
 
 
 # creates the posts and post entry folder
@@ -40,7 +45,8 @@ with open(f"{posts_path}/{file_name}/{file_name}.md", "w", encoding="utf-8") as 
 
 # adds the post entry to home.md
 
-home_path : str = "./home.md"
+# home_path : str = "./home.md"
+home_path : str = metadata["home_path"]
 date_entry : datetime = datetime.now().strftime("%d/%m/%Y")
 post_entry : str = f"\n{date_entry} [{post_title}]({posts_path[1:]}/{file_name}/)  \n"
 

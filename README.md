@@ -9,3 +9,7 @@
 2. Run `python build.py` to generate the website.
 3. Commit changes to working branch.
 4. Configure branches in `./deploy.sh`, then run the script to merge with the main branch.
+
+
+explain rss-it.py
+explain metadata.yaml

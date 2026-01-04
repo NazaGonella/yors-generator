@@ -1,7 +1,13 @@
 import subprocess
+import json
 from pathlib import Path
 
-markdown_files = [md for md in Path("./posts").rglob("*.md")]
+with open("metadata.json", "r", encoding="utf-8") as f:
+    metadata = json.load(f)
+
+posts_path = metadata["posts_path"]
+
+markdown_files = [md for md in Path(posts_path).rglob("*.md")]
 
 print("\n### Converting to RSS ###")
 

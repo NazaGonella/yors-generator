@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>$title$</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <header>
+        <link rel="icon" href="/assets/favicon.svg" type="image/svg">
+        <a class="author-name" href="/">Your Name</a>
+        <nav>
+            <a class="title" href="/">Section 0</a>
+            <span class="separator"></span>
+            <a class="title" href="/">Section 1</a>
+            <span class="separator"></span>
+            <a class="title" href="/">Section 2</a>
+            <span class="separator"></span>
+            <a class="title" href="/feed.xml">RSS</a>
+        </nav>
+    </header>
+
+  <main>
+    <article>
+      $body$
+    </article>
+  </main>
+
+  $for(footnotes)$
+  <div class="footnotes">
+    $footnotes$
+  </div>
+  $endfor$
+</body>
+</html>

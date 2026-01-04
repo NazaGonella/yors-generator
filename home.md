@@ -1,8 +1,13 @@
-% fulano's website
+---
+title: Your Name!!
+author: Your Name
+template: template-home.html
+---
 
-<header>
-</header>
+---
 
-<hr />
+<div class=posts>
+
+</div>
 
 ---

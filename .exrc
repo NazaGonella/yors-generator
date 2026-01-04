@@ -7,3 +7,6 @@ augroup markdown_shortcuts
   autocmd FileType markdown inoremap <buffer> <C-l> ```<CR><CR>```<Esc>kA
   autocmd FileType markdown autocmd BufWritePost <buffer> execute '!python3 ' . shellescape(s:script_dir . '/build.py')
 augroup END
+
+highlight Todo ctermfg=Yellow ctermbg=NONE guifg=Yellow guibg=NONE
+match Todo /\<TODO\>/
